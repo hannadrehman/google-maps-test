@@ -68,14 +68,15 @@
             fillOpacity: 0.35
             });
         unitedStatesborder.setMap(map);
-        
+        // btn click handlers
         function btnClickHandler(ev){
             clearMap()
             var id = ev.target.id;
             drawMarkers(id,unitedStatesborder)
         }
-
+        // draws map
         function drawMarkers(type,polygon){
+            // gets relevant data based on type. showAll or showLess
             markerData = getMarkersBasedOnType(window.globalData,type,polygon)
             markers=[];
             markerData.forEach(function(marker){
@@ -88,6 +89,7 @@
             markers.push(pointMarker)
         })
         }
+        // returns marker data to be shown
         function getMarkersBasedOnType(arr,type,polygon){
             if(type == 'showAll') return arr
             else{
